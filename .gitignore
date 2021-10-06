@@ -5,3 +5,4 @@ install/
 .vscode/
 public/
 .cache/
+*.gad

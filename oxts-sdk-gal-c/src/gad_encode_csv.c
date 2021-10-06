@@ -14,7 +14,9 @@
 extern "C"
 {
 #endif
-const int MAX_BUFF = 1024;
+   
+
+#define MAX_BUFF 1024
 
    //============================================================================================================
    int print_gen_3d_header(FILE* file_ptr)
