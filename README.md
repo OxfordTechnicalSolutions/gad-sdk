@@ -18,6 +18,15 @@ sudo apt-get install cmake
 sudo apt-get install libboost-all-dev
 ```
 
+### Installing requirements on Windows 
+
+- Download and install [CMake](https://cmake.org/download/)
+- Download [Boost](https://www.boost.org/users/download/)
+  - Extract the files to a sensible location such as C:\Libs. Note you do not need to create an extra containing folder. The full path to the boost libraries should resemble C:\Libs\boost_1_77_0.
+  - Navigate to the boost directory and run ``` bootstrap.bat ``` 
+  - Run ```b2.exe link=shared```
+  - Edit your environment variables and add the variable ```BOOST_ROOT``` with value equal to the path to your boost library. In this example the value would be ```C:\Libs\boost_1_77_0```
+
 ## Getting Started
 
 Install the pre-built binaries from... (TBC). Will require some form of deployment.
@@ -32,13 +41,25 @@ Users can also build the SDK from source, using the following instructions:
    configure options, such as enabling building of examples and documentation.
 4. Execute the commands:
 
+### Linux
 ```
 mkdir _build && cd _build 
 cmake ..
 cmake --build . --target install
 ```
+This will build the SDK and install it to your machine. Your machine may report an error from the INSTALL that permission to copy a file has been denied. In this case run the last command again, but add `sudo` to the start. This should provide the correct access rights to install files to the correct location. 
 
-This will build the SDK and install it to your machine. Your machine may report an error from the INSTALL that permission to copy a file has been denied. In this case run the last command again, but add `sudo` to the start. This should provide the correct access rights to install files to the correct location. Once this is complete, other CMake projects on the machine can link to the libraries using:
+### Windows
+```
+mkdir _build
+cd _build
+cmake ..
+cmake --build . --target install
+```
+This will build the SDK and install it on your machine. You may need to run CMD or Powershell as an adminitrator if the SDK fails to install.
+
+
+Once this is complete, other CMake projects on the machine can link to the libraries using:
 
 ```
 find_package(oxts-sdk-gal-cpp REQUIRED)
@@ -81,7 +102,9 @@ The documentation for this project is generated using a few tools: Doxygen, Brea
 ```
 
 
-## Python GAD SDK
+## Python GAD SDK (Windows and Linux)
+
+Note: As of PIP 21.3 pip creates build files locally in a folder called build instead of a temporary folder. If the boost install directory changes or the path isn't set properly then the build folder should be manually deleted before trying to install again. Likewise if modifying the code and installing again then the build folder should be deleted.  
 
 The C++ SDK has been wrapped in Python using PyBind11. The interface for the Python code largely matches that of the C++ code, though class accessors have been replaced with Python properties.
 
