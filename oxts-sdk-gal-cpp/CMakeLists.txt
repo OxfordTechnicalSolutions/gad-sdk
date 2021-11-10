@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
+cmake_policy(SET CMP0074 NEW)
+
 
 # define library version 
 set(OXTS_SDK_GAL_VERSION_MAJOR 0 CACHE STRING "major version" FORCE)
