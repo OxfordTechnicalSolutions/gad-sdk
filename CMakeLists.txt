@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.4)
 
+cmake_policy(SET CMP0074 NEW)
+
 project(oxts-sdk LANGUAGES CXX C)
 
 # Add preprocessor definitions for the SDK version and platform name
@@ -10,7 +12,7 @@ add_definitions(-DOXTS_SDK_VERSION_PATCH=${oxts-sdk_VERSION_PATCH})
 
 # Building and installation options
 #option(OXTS_SDK_BUILD_DOCS "Build SDK documentation." OFF)
-option(OXTS_SDK_BUILD_EXAMPLES "Enable examples targets." OFF) 
+option(OXTS_SDK_BUILD_EXAMPLES "Enable examples targets." ON) 
 option(OXTS_SDK_BUILD_PYTHON "Build SDK Python wrapper." OFF) 
 option(OXTS_SDK_DISABLE_BOOST "Disable Boost library when building." OFF)
 # Used for cpp linting by clang-tidy
