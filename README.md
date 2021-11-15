@@ -12,7 +12,7 @@ Find the full code documentation for this project at: [https://oxts.gitlab.io/na
 - Boost 1.71 (requirement can be disabled, though this will remove UDP functionality)
 - Generic Aiding Feature Codes.
 - Ethernet connection to an OxTS INS, for real-time aiding.
-- C/C++ Compiler (Easiest option is to install Visual Studio, Professional or Code on Windows, Linux GCC)
+- C/C++ Compiler (Easiest option is to install Visual Studio Professional 2019 (not 2022 - boost won't install) on Windows, Linux GCC)
 
 ### Installing requirements on Linux
 
@@ -26,8 +26,7 @@ sudo apt-get install libboost-all-dev
 - Download and install [CMake](https://cmake.org/download/)
 - Download [Boost](https://www.boost.org/users/download/)
   - Extract the files to a sensible location such as C:\Libs. Note you do not need to create an extra containing folder. The full path to the boost libraries should resemble C:\Libs\boost_1_77_0.
-  - Navigate to the boost directory and run ``` bootstrap.bat ``` 
-  - Run ```b2.exe link=shared```
+  - In a command prompt navigate to the boost directory and run ``` bootstrap.bat ``` - Then run ```b2.exe link=shared``` to install boost.
   - Edit your environment variables and add the variable ```BOOST_ROOT``` with value equal to the path to your boost library. In this example the value would be ```C:\Libs\boost_1_77_0```
 
 ## Getting Started
@@ -113,6 +112,6 @@ The C++ SDK has been wrapped in Python using PyBind11. The interface for the Pyt
 
 The Python SDK is not yet  documented, though its binding to the C++ can be found in `oxts-sdk-py/gal-py-bindings.cpp`. There is also an example in `examples/python/my-first-gad.py`.
 
-To install the package, use `pip install ./oxts-sdk` from the directory above the repository folder. After that, it can be imported using `import oxts_sdk`.
+To install the package, use `pip install ./gad-sdk` from the directory above the repository folder. After that, it can be imported using `import oxts_sdk`.
 
 
