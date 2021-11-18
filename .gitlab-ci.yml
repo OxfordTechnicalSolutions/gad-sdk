@@ -27,8 +27,6 @@ linux:build:
 
 python:build:
   stage: build
-  tags:
-    - python
   cache:
     paths:
       - .cache/pip
