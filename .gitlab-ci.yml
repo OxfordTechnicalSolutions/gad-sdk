@@ -27,7 +27,7 @@ linux:build:
 
 python:build:
   stage: build
-  image: quay.io/pypa/manylinux1_x86_64
+  image: quay.io/pypa/manylinux2014_x86_64
   variables:
      GIT_SUBMODULE_STRATEGY: recursive
      PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
