@@ -25,6 +25,27 @@ linux:build:
       - build
 
 
+python:build:
+  stage: build
+  tags:
+    - python
+  cache:
+    paths:
+      - .cache/pip
+      - venv/
+  before_script:
+    - python -V  # Print out python version for debugging
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
+
+  script:
+    - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
+    - PLAT=manylinux2014_x86_64
+    - docker pull $DOCKER_IMAGE
+    - docker run --rm -e $PLAT -v `pwd`:/io $DOCKER_IMAGE /io/gitlab/build-wheels.sh
+    - ls wheelhouse/
+
 docs:test:
   stage: test
   image: python:3.7-alpine
