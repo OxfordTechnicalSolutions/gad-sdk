@@ -27,6 +27,7 @@ linux:build:
 
 python:build:
   stage: build
+  image: quay.io/pypa/manylinux1_x86_64
   cache:
     paths:
       - .cache/pip
@@ -38,11 +39,7 @@ python:build:
     - source venv/bin/activate
 
   script:
-    - DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
-    - PLAT=manylinux2014_x86_64
-    - docker pull $DOCKER_IMAGE
-    - docker run --rm -e $PLAT -v `pwd`:/io $DOCKER_IMAGE /io/gitlab/build-wheels.sh
-    - ls wheelhouse/
+    - python setup.py sdist bdist_wheel
 
 docs:test:
   stage: test
