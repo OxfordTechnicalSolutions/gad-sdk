@@ -302,12 +302,12 @@ namespace OxTS
 	}
 	double Gad::GetTimePpsRelative() const { return time.GetValZ(); }
 	// Latency
-	void   Gad::SetTimeLatency(double ns)
+	void   Gad::SetTimeLatency(double s)
 	{
 		SetTimeValid(true);
 		time.SetMode(0);
 		time.SetValType(TIME_SYS::TIME_EST_LATENCY);
-		time.SetVal(0.0, ns, 0.0);
+		time.SetVal(0.0, s, 0.0);
 	}
 	double Gad::GetTimeLatency() const { return time.GetValY(); }
 	// UTC - Unix

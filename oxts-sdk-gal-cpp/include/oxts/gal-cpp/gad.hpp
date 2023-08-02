@@ -206,9 +206,9 @@ namespace OxTS
 		 * of the time taken for the packet to travel from the aiding source to the
 		 * INS. Upon arrival the INS will timestamp the data, adjusting for the
 		 * latency.
-		 * @param ns Latency estimate in (nanoseconds).
+		 * @param s Latency estimate in seconds.
 		 */
-		void SetTimeLatency(double ns);
+		void SetTimeLatency(double s);
 		/** Get latency estimate.   */
 		double GetTimeLatency() const;
 		/** Set the timestamp as UTC time encoded as the number of seconds from the UNIX epoch.
