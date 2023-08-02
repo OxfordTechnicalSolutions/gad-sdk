@@ -358,7 +358,6 @@ namespace OxTS
 				BOOST_CHECK(ret[1] == 2.99);
 				BOOST_CHECK(ret[2] == 3.99);
 			}
-
 			BOOST_AUTO_TEST_CASE(GadPosition_AidingLeverArmVar)
 			{
 				OxTS::GadPosition g(0);
@@ -371,6 +370,22 @@ namespace OxTS
 				BOOST_CHECK(ret[1] == 2.99);
 				BOOST_CHECK(ret[2] == 3.99);
 			}
+			BOOST_AUTO_TEST_CASE(GadPosition_AidingLeverArmVarUpperDiag)
+			{
+				OxTS::GadPosition g(0);
+
+				g.SetAidingLeverArmVarUpperDiag(1.99, 2.99, 3.99, 4.99, 5.99, 6.99);
+
+				auto ret = g.GetAidingLeverArmVar();
+
+				BOOST_CHECK(ret[0] == 1.99);
+				BOOST_CHECK(ret[1] == 2.99);
+				BOOST_CHECK(ret[2] == 3.99);
+				BOOST_CHECK(ret[3] == 4.99);
+				BOOST_CHECK(ret[4] == 5.99);
+				BOOST_CHECK(ret[5] == 6.99);
+			}
+
 		}
 
 		namespace GadVelocity

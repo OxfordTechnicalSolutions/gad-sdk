@@ -458,6 +458,13 @@ namespace OxTS
 		SetLocVarDiag(x, y, z);
 	}
 
+	void GadPosition::SetAidingLeverArmVarUpperDiag(
+		double v_xx, double v_yy, double v_zz,
+		double v_xy, double v_xz, double v_yz)
+	{
+		SetLocVarUpperDiag(v_xx, v_yy, v_zz, v_xy, v_xz, v_yz);
+	}
+
 	std::vector<double> GadPosition::GetAidingLeverArmVar() const
 	{
 		return GetLocVar();

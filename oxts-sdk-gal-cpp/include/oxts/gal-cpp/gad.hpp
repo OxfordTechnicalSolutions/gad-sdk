@@ -347,6 +347,21 @@ namespace OxTS
 		 * @param z Variance on the lever arm from INS to aiding source in the z axis of the IMU frame.
 		 */
 		void SetAidingLeverArmVar(double x, double y, double z);
+		/**
+		 * Set the variance (accuracy) of the lever arm measurements from the INS to
+		 * the aiding source, including off-diagonal terms. Only required for fixed lever-arm.
+		 *
+		 * @param v_xx Variance on the lever arm from INS to aiding source in the x axis of the IMU frame.
+		 * @param v_yy Variance on the lever arm from INS to aiding source in the x axis of the IMU frame.
+		 * @param v_zz Variance on the lever arm from INS to aiding source in the x axis of the IMU frame.
+		 * @param v_xy Covariance on the lever arm from INS to aiding source between the x and y axes of the IMU frame.
+		 * @param v_xz Covariance on the lever arm from INS to aiding source between the x and z axes of the IMU frame.
+		 * @param v_yz Covariance on the lever arm from INS to aiding source between the y and z axes of the IMU frame.
+		 */
+		void SetAidingLeverArmVarUpperDiag(
+			double v_xx, double v_yy, double v_zz,
+			double v_xy, double v_xz, double v_yz);
+		
 		std::vector<double> GetAidingLeverArmVar() const;
 	};
 
