@@ -91,6 +91,7 @@ typedef enum
    GEN_ATT,          /** Attitude. */
    GEN_HEADING,      /** Heading   @note To be merged in GEN_ATT, with ATT specifying in type wherer only heading, or heading+pitch, or heading+pitch+roll are present. */
    GEN_TIMETRIG,     /** Time trigger, used for indoor segment navigation. */
+   GEN_ANGULAR,      /** Angular Rate. */
    GEN_NUM
 } GEN_TYPE;
 
@@ -142,6 +143,14 @@ typedef enum
    HEA_SYS_NAV,        // Heading measurement in the navigation frame (NED).
    HEA_SYS_LOCAL       // Heading measurement in a local frame. 
 } HEA_SYS_TYPE;
+
+//==============================================================================
+//! \brief Angular Rate types
+typedef enum
+{
+   ANG_SYS_VOID = 0,    
+   ANG_SYS_DEFAULT = 1  /** Angular rate update in a rigidly-mounted sensor frame. */
+} ANG_SYS_TYPE;
 
 //==============================================================================
 //! \brief Location types. (lever arm)

@@ -46,6 +46,13 @@ if(NOT OXTS_SDK_DISABLE_BOOST)
         PUBLIC 
             oxts-sdk-gal-cpp
     )
+    # Example 5 - Angular Rate
+    set(OXTS_SDK_EXAMPLES_GAL_STATIC angular-rate-example)
+    add_executable(${OXTS_SDK_EXAMPLES_GAL_STATIC} ./angular-rate.cpp)
+    target_link_libraries(${OXTS_SDK_EXAMPLES_GAL_STATIC} 
+        PUBLIC 
+            oxts-sdk-gal-cpp
+    )
 endif()
     
 # Example 4 - Static Aiding No Boost

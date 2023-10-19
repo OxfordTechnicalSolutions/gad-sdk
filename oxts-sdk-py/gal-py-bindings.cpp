@@ -92,6 +92,13 @@ PYBIND11_MODULE(oxts_sdk, m) {
         .def_property("aiding_alignment_var", &OxTS::GadHeading::GetAidingAlignmentVar, UNPACK3(GadHeading, SetAidingAlignmentVar))
         .def_property("aiding_alignment_fixed", &OxTS::GadHeading::GetAidingAlignment, UNPACK3(GadHeading, SetAidingAlignmentFixed));
 
+    py::class_<OxTS::GadAngularRate, OxTS::Gad>(m, "GadAngularRate")
+        .def(py::init<uint8_t>(), py::arg("stream_id"))
+        .def_property("angular_rate", &OxTS::GadAngularRate::GetAngularRate, &OxTS::GadAngularRate::SetAngularRate)
+        .def_property("angular_rate_var", &OxTS::GadAngularRate::GetAngularRateVar, &OxTS::GadAngularRate::SetAngularRateVar)
+        .def_property("aiding_alignment_var", &OxTS::GadAngularRate::GetAidingAlignmentVar, UNPACK3(GadAngularRate, SetAidingAlignmentVar))
+        .def_property("aiding_alignment_fixed", &OxTS::GadAngularRate::GetAidingAlignment, UNPACK3(GadAngularRate, SetAidingAlignmentFixed));
+
     py::class_<OxTS::GadHandler>(m, "GadHandler")
         .def(py::init<>())
         // .def(py::init<OxTS::GadEncoder*>(), py::arg("encoder_strategy"))

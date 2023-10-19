@@ -767,4 +767,55 @@ namespace OxTS
 		return GetLocVar();
 	}
 
+	//==============================================================================
+	// GadAngularRate
+	GadAngularRate::GadAngularRate() : Gad(DEFAULT_STREAM_ID, GEN_TYPE::GEN_ANGULAR) {}
+
+	GadAngularRate::GadAngularRate(uint8_t stream_id) : Gad(stream_id, GEN_TYPE::GEN_ANGULAR) {}
+
+	// val
+	void GadAngularRate::SetAngularRate(double wx, double wy, double wz)
+	{
+		SetDataMode(0);
+		SetDataValType(ANG_SYS_TYPE::ANG_SYS_DEFAULT);
+		SetDataVal(wx, wy, wz);
+	}
+
+	std::vector<double> GadAngularRate::GetAngularRate() const
+	{
+		return GetDataVal();
+	}
+
+	void GadAngularRate::SetAngularRateVar(double v_wx, double v_wy, double v_wz)
+	{
+		SetDataVarDiag(v_wx, v_wy, v_wz);
+	}
+
+	std::vector<double> GadAngularRate::GetAngularRateVar() const
+	{
+		return GetDataVar();
+	}
+	// loc 
+	std::vector<double> GadAngularRate::GetAidingAlignment() const
+	{
+		return GetLocVal();
+	}
+
+	void GadAngularRate::SetAidingAlignmentFixed(double h, double p, double r)
+	{
+	  SetLocMode(LOC_SYS::LOC_FIXED);
+	  SetLocVal(h, p, r);
+	}
+
+	void GadAngularRate::SetAidingAlignmentVar(double v_h, double v_p, double v_r)
+	{
+		SetLocVarDiag(v_h, v_p, v_r);
+	}
+
+	std::vector<double> GadAngularRate::GetAidingAlignmentVar() const
+	{
+		return GetLocVar();
+	}
+
+
 } // namespace OxTS
