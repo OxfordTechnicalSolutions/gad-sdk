@@ -140,6 +140,14 @@ namespace OxTS
             HEA_SYS_LOCAL       // Heading measurement in a local frame. 
         };
 
+        //============================================================================================================
+        //! \brief Angular Rate types
+        ENUM ANG_SYS_TYPE /*PRQA S 1120 # Assume C++11*/
+        {
+            ANG_SYS_VOID,
+            ANG_SYS_SENSOR        // Angular Rate measurement in the sensor frame (wx, wy, wz | deg/s).
+        };
+
         //==============================================================================
         //! \brief Location types. (lever arm)
         ENUM LOC_SYS /*PRQA S 1120 # Assume C++11*/

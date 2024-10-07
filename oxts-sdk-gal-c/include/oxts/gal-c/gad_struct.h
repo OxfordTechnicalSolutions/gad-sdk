@@ -139,13 +139,19 @@ typedef struct
 /** Attitude measurement given as Heading, Pitch, Roll in a static local reference frame. */
 #define ATT_SYS_LOCAL 2U     /*PRQA S 1534 # Macro is intended for external consumption. */
 
-//============================================================================================================
+//==============================================================================
 // \brief Heading types
-#define HEA_SYS_VOID 0U /*PRQA S 1534 # Macro is intended for external consumption. */
+#define HEA_SYS_VOID  0U /*PRQA S 1534 # Macro is intended for external consumption. */
 // Heading measurement in the navigation frame (NED).
-#define HEA_SYS_NAV 1U         /*PRQA S 1534 # Macro is intended for external consumption. */
+#define HEA_SYS_NAV   1U /*PRQA S 1534 # Macro is intended for external consumption. */
 // Heading measurement in a local frame.  
-#define HEA_SYS_LOCAL 2U       /*PRQA S 1534 # Macro is intended for external consumption. */
+#define HEA_SYS_LOCAL 2U /*PRQA S 1534 # Macro is intended for external consumption. */
+
+//==============================================================================
+// \brief Angular Rate types
+#define ANG_SYS_VOID   0U /*PRQA S 1534 # Macro is intended for external consumption. */
+// Angular Rate measurement in the sensor frame (wx, wy, wz).
+#define ANG_SYS_SENSOR 1U /*PRQA S 1534 # Macro is intended for external consumption. */
 
 //==============================================================================
 // \brief Location types. (lever arm)

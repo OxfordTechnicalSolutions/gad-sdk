@@ -819,6 +819,64 @@ namespace OxTS
 			void SetAidingAlignmentVar(const double_t h_v, const double_t p_v, const double_t r_v);
 			const container_double6_t& GetAidingAlignmentVar() const;
 		};
+
+		/**
+		 * (EXPERIMENTAL) Generic Aiding Angular Rate.
+		 */
+		class GadAngularRate : public Gad
+		{
+		public:
+			/**
+			 * Default constructor
+			 */
+			GadAngularRate();
+			/** Constructor.
+			 *  @param stream_id Stream ID for the attitude aiding source. Must be unique 128-254.
+			 */
+			explicit GadAngularRate(uint8_t stream_id);
+			const container_double3_t& GetAngularRate() const;
+			// val
+			/**
+			 * Set the angular rate measurement relative to the sensor frame.
+			 * @param wx (deg/s)
+			 * @param wy (deg/s)
+			 * @param wz (deg/s)
+			 */
+			void SetAngularRate(double_t wx, double_t wy, double_t wz);
+			/**
+			 * Set the estimated variance on the angular rate measurement.
+			 * @param v_wx Variance estimate on the angular rate around the X axis (deg)^2
+			 * @param v_wy Variance estimate on the angular rate around the Y axis (deg)^2
+			 * @param v_wz Variance estimate on the angular rate around the Z axis (deg)^2
+			 */
+			void SetAngularRateVar(double_t v_wx, double_t v_wy, double_t v_wz);
+			const container_double6_t& GetAngularRateVar() const;
+			/**
+			 * Set the angles which specify the rotation required to align the IMU and 
+			 * aiding sensor frames. This alignment will not be optimised by the INS.
+			 * @param h
+			 * @param p
+			 * @param r
+			 */
+			void SetAidingAlignmentFixed(double_t h, double_t p, double_t r);
+			/** 
+			 * Indicate that alignment will be configured in the configuration file on
+			 * the INS.
+			*/
+			void SetAidingAlignmentConfig();
+			
+			const container_double3_t& GetAidingAlignment() const;
+			/**
+			 * Set the estimated variance (error) on the alignment angles between the IMU
+			 * and aiding sensor frames.
+			 * @param v_h
+			 * @param v_p
+			 * @param v_r
+			 */
+			void SetAidingAlignmentVar(double_t v_h, double_t v_p, double_t v_r);
+			const container_double6_t& GetAidingAlignmentVar() const;
+		};
+
 	} // namespace gal_cpp
 } // namespace oxts
 

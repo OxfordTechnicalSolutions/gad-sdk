@@ -1223,5 +1223,85 @@ namespace OxTS
 		{
 			return GetLocVar();
 		}
-	}
+
+		//==============================================================================
+		// GadAngularRate
+		GadAngularRate::GadAngularRate() : 
+#ifdef OXTS_ENABLE_CPP11
+			Gad(DEFAULT_STREAM_ID, static_cast<int8_t>(GEN_TYPE::GEN_ANGRATE)) 
+#else
+			Gad(DEFAULT_STREAM_ID, static_cast<int8_t>(GEN_ANGRATE)) 
+#endif
+		{
+
+		}
+
+		GadAngularRate::GadAngularRate(const uint8_t stream_id) : 
+#ifdef OXTS_ENABLE_CPP11
+			Gad(stream_id, static_cast<int8_t>(GEN_TYPE::GEN_ANGRATE)) 
+#else
+			Gad(stream_id, static_cast<int8_t>(GEN_ANGRATE)) 
+#endif
+		{
+
+		}
+
+		// val
+		void GadAngularRate::SetAngularRate(double_t wx, double_t wy, double_t wz)
+		{
+			SetDataMode(0U);
+#ifdef OXTS_ENABLE_CPP11
+			SetDataValType(static_cast<uint8_t>(ANG_SYS_TYPE::ANG_SYS_SENSOR));
+#else
+			SetDataValType(static_cast<uint8_t>(ANG_SYS_SENSOR));
+#endif
+			SetDataVal(wx, wy, wz);
+		}
+
+		const container_double3_t& GadAngularRate::GetAngularRate() const
+		{
+			return GetDataVal();
+		}
+
+		void GadAngularRate::SetAngularRateVar(double_t v_wx, double_t v_wy, double_t v_wz)
+		{
+			SetDataVarDiag(v_wx, v_wy, v_wz);
+		}
+
+		const container_double6_t& GadAngularRate::GetAngularRateVar() const
+		{
+			return GetDataVar();
+		}
+		// loc 
+		const container_double3_t& GadAngularRate::GetAidingAlignment() const
+		{
+			return GetLocVal();
+		}
+
+		void GadAngularRate::SetAidingAlignmentFixed(double_t h, double_t p, double_t r)
+		{
+			SetLocMode(LOC_SYS::LOC_FIXED);
+			SetLocVal(h, p, r);
+		}
+
+		void GadAngularRate::SetAidingAlignmentConfig()
+		{
+#ifdef OXTS_ENABLE_CPP11
+			SetLocMode(static_cast<uint8_t>(LOC_SYS::LOC_CONFIG));
+#else
+			SetLocMode(static_cast<uint8_t>(LOC_CONFIG));
+#endif
+			SetLocVal(0.0, 0.0, 0.0);
+		}
+
+		void GadAngularRate::SetAidingAlignmentVar(double_t v_h, double_t v_p, double_t v_r)
+		{
+			SetLocVarDiag(v_h, v_p, v_r);
+		}
+
+		const container_double6_t& GadAngularRate::GetAidingAlignmentVar() const
+		{
+			return GetLocVar();
+		}
+	} // namespace Gal_Cpp
 } // namespace OxTS
