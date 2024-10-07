@@ -75,7 +75,8 @@ typedef struct
 #define TIME_UNIX_UTC 6       /*PRQA S 1534 # Macro is intended for external consumption. */
 // Time in TAI format 
 #define TIME_TAI 7            /*PRQA S 1534 # Macro is intended for external consumption. */
-
+// Time relative to PTP offset
+#define TIME_PTP 8
 //==============================================================================
 // \brief Generic Aiding types
 
