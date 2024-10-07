@@ -744,7 +744,7 @@ namespace OxTS
 			}
 		}
 
-		namespace GadAttititude
+		namespace GadAttitude
 		{
 			BOOST_AUTO_TEST_CASE(GadAttitude_Att)
 			{
@@ -766,6 +766,61 @@ namespace OxTS
 				g.SetAttVar(1.99, 2.99, 3.99);
 
 				auto ret = g.GetAttVar();
+
+				BOOST_CHECK(ret[0] == 1.99);
+				BOOST_CHECK(ret[1] == 2.99);
+				BOOST_CHECK(ret[2] == 3.99);
+			}
+		}
+
+		namespace GadAngularRate
+		{
+			BOOST_AUTO_TEST_CASE(GadAngularRate_AngularRate)
+			{
+				OxTS::Gal_Cpp::GadAngularRate g(130);
+
+				g.SetAngularRate(1.99, 2.99, 3.99);
+
+				auto ret = g.GetAngularRate();
+
+				BOOST_CHECK(ret[0] == 1.99);
+				BOOST_CHECK(ret[1] == 2.99);
+				BOOST_CHECK(ret[2] == 3.99);
+			}
+
+			BOOST_AUTO_TEST_CASE(GadAngularRate_AngularRateVar)
+			{
+				OxTS::Gal_Cpp::GadAngularRate g(130);
+
+				g.SetAngularRateVar(1.99, 2.99, 3.99);
+
+				auto ret = g.GetAngularRateVar();
+
+				BOOST_CHECK(ret[0] == 1.99);
+				BOOST_CHECK(ret[1] == 2.99);
+				BOOST_CHECK(ret[2] == 3.99);
+			}
+
+			BOOST_AUTO_TEST_CASE(GadAngularRate_AidingAlignmentFixed)
+			{
+				OxTS::Gal_Cpp::GadAngularRate g(130);
+
+				g.SetAidingAlignmentFixed(1.99, 2.99, 3.99);
+
+				auto ret = g.GetAidingAlignment();
+
+				BOOST_CHECK(ret[0] == 1.99);
+				BOOST_CHECK(ret[1] == 2.99);
+				BOOST_CHECK(ret[2] == 3.99);
+			}
+
+			BOOST_AUTO_TEST_CASE(GadAngularRate_AidingAlignmentVar)
+			{
+				OxTS::Gal_Cpp::GadAngularRate g(130);
+
+				g.SetAidingAlignmentVar(1.99, 2.99, 3.99);
+
+				auto ret = g.GetAidingAlignmentVar();
 
 				BOOST_CHECK(ret[0] == 1.99);
 				BOOST_CHECK(ret[1] == 2.99);
