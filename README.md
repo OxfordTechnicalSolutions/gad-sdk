@@ -24,8 +24,8 @@ Find the full code documentation for this project at:
 
 ## Requirements
 
-- Navsuite 3.9 or newer.
-- OxTS INS with firmware version 231017 or newer.
+- Navsuite 3.13 or newer.
+- OxTS INS with firmware version 240917 or newer.
 - CMake >3.10
 - Generic Aiding Feature Codes.
 - Ethernet connection to an OxTS INS, for real-time aiding.
