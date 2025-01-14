@@ -194,6 +194,16 @@ namespace OxTS
 				BOOST_CHECK(g.GetTimeValid() == true);
 			}
 
+			BOOST_AUTO_TEST_CASE(Gad_TimePTP)
+			{
+				OxTS::Gal_Cpp::Gad g;
+
+				g.SetTimePTP(1.99);
+				
+				BOOST_CHECK(g.GetTimePTP() == 1.99);
+				BOOST_CHECK(g.GetTimeValid() == true);
+			}
+
 			BOOST_AUTO_TEST_CASE(Gad_Res1Valid)
 			{
 				OxTS::Gal_Cpp::Gad g;

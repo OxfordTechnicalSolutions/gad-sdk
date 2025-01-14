@@ -35,6 +35,7 @@ PYBIND11_MODULE(oxts_sdk, m) {
         .def_property("time_pps_relative", &OxTS::Gal_Cpp::Gad::GetTimePpsRelative, &OxTS::Gal_Cpp::Gad::SetTimePpsRelative)
         .def_property("time_latency", &OxTS::Gal_Cpp::Gad::GetTimeLatency, &OxTS::Gal_Cpp::Gad::SetTimeLatency)
         .def_property("time_utc_unix", &OxTS::Gal_Cpp::Gad::GetTimeUTCUnix, &OxTS::Gal_Cpp::Gad::SetTimeUTCUnix)
+        .def_property("time_ptp", &OxTS::Gal_Cpp::Gad::GetTimePTP, &OxTS::Gal_Cpp::Gad::SetTimePTP)
         .def("set_time_void", &OxTS::Gal_Cpp::Gad::SetTimeVoid)
         // Acquisiton time accessors.
         .def_property("acq_valid", &OxTS::Gal_Cpp::Gad::GetAcqValid, &OxTS::Gal_Cpp::Gad::SetAcqValid)

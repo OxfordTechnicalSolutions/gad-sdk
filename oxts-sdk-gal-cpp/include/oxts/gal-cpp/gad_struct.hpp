@@ -68,7 +68,8 @@ namespace OxTS
             TIME_SDN,            /** This is internal timing for xbns. (DO NOT USE) */
             TIME_EXT,            /** IN DEVELOPMENT, DO NOT USE */
             TIME_UNIX_UTC,       /** Time since unix epoch, including leap seconds. */
-            TIME_TAI             // Time in TAI format
+            TIME_TAI,            // Time in TAI format
+            TIME_PTP             /** PTP Timestamp */
         };
 
         //==============================================================================
