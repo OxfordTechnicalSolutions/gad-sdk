@@ -441,7 +441,20 @@ namespace OxTS
 			m_time_data.SetValType(static_cast<uint8_t>(TIME_VOID));
 #endif
 		}
+		// PTP
+		void Gad::SetTimePTP(const double_t secs)
+		{
+			SetTimeValid(true);
+			m_time_data.SetMode(0U);
+#ifdef OXTS_ENABLE_CPP11
+			m_time_data.SetValType(static_cast<uint8_t>(TIME_SYS::TIME_PTP));
+#else
+			m_time_data.SetValType(static_cast<uint8_t>(TIME_PTP));
 
+			m_time_data.SetVal(secs, 0.0, 0.0);
+#endif
+		}
+		double_t Gad::GetTimePTP() const { return m_time_data.GetValX(); }
 		// loc  
 		void Gad::SetLocValid(const bool flag) { m_loc_valid = flag; }
 		const bool Gad::GetLocValid() const { return m_loc_valid; }

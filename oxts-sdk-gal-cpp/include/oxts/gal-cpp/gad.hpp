@@ -200,7 +200,11 @@ namespace OxTS
 			void SetTimeTAI(const double_t secs);
 			/** Get TAI timestamp.  */
 			double_t GetTimeTAI() const;
-
+			/// @brief Set the PTP timestamp of the aiding
+			/// @param secs PTP Timestamp (Seconds)
+			void SetTimePTP(const double_t secs);
+			/* Get the PTP timestamp*/
+			double_t GetTimePTP() const;
 			void SetTimePpsRelative(const double_t ns);
 			double_t GetTimePpsRelative() const;
 			/**
