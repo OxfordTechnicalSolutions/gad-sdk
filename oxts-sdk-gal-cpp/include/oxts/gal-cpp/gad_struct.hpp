@@ -86,6 +86,7 @@ namespace OxTS
             GEN_TIMETRIG,     /** Time trigger, used for indoor segment navigation. */
             GEN_SPEED,        /** Wheel Speed */
             GEN_ANGRATE,      /** Angular rate measurement */
+            GEN_ORI,          /** Orientation. */
             GEN_NUM
         };
 
@@ -129,6 +130,16 @@ namespace OxTS
             ATT_SYS_VOID,
             ATT_SYS_HPR,      /** Attitude measurement given as Heading, Pitch, Roll in the navigation (NED) frame. */
             ATT_SYS_LOCAL     /** Attitude measurement given as Heading, Pitch, Roll in a static local reference frame. */
+        };
+
+        //==============================================================================
+        //! \brief Orientation types 
+
+        ENUM ORI_SYS_TYPE /*PRQA S 1120 # Assume C++11*/
+        {
+            ORI_SYS_VOID,
+            ORI_SYS_HPR,      /** Attitude measurement given as Heading, Pitch, Roll in the navigation (NED) frame. */
+            ORI_SYS_LOCAL     /** Attitude measurement given as Heading, Pitch, Roll in a static local reference frame. */
         };
 
         //============================================================================================================

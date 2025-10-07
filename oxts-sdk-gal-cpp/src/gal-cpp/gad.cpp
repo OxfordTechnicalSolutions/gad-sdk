@@ -1012,6 +1012,112 @@ namespace OxTS
 		}
 
 		//==============================================================================
+		// GadOrientation
+		GadOrientation::GadOrientation() :
+#ifdef OXTS_ENABLE_CPP11
+			Gad(DEFAULT_STREAM_ID, static_cast<int8_t>(GEN_TYPE::GEN_ORI))
+#else
+			Gad(DEFAULT_STREAM_ID, static_cast<int8_t>(GEN_ORI))
+#endif
+		{
+
+		}
+
+		GadOrientation::GadOrientation(const uint8_t stream_id) :
+#ifdef OXTS_ENABLE_CPP11
+			Gad(stream_id, static_cast<int8_t>(GEN_TYPE::GEN_ORI))
+#else
+			Gad(stream_id, static_cast<int8_t>(GEN_ORI))
+#endif
+		{
+
+		}
+
+		// val
+		void GadOrientation::SetOri(const double_t heading, const double_t pitch, const double_t roll)
+		{
+			SetDataMode(0U);
+#ifdef OXTS_ENABLE_CPP11
+			SetDataValType(static_cast<uint8_t>(ORI_SYS_TYPE::ORI_SYS_HPR));
+#else
+			SetDataValType(static_cast<uint8_t>(ORI_SYS_HPR));
+#endif
+			SetDataVal(heading, pitch, roll);
+		}
+
+		void GadOrientation::SetOriLocal(const double_t heading, const double_t pitch, const double_t roll)
+		{
+			SetDataMode(0U);
+#ifdef OXTS_ENABLE_CPP11
+			SetDataValType(static_cast<uint8_t>(ORI_SYS_TYPE::ORI_SYS_LOCAL));
+#else
+			SetDataValType(static_cast<uint8_t>(ORI_SYS_LOCAL));
+#endif
+			SetDataVal(heading, pitch, roll);
+		}
+
+		const container_double3_t& GadOrientation::GetOri() const
+		{
+			return GetDataVal();
+		}
+
+		void GadOrientation::SetOriVar(const double_t v_h, const double_t v_p, const double_t v_r)
+		{
+			SetDataVarDiag(v_h, v_p, v_r);
+		}
+
+		const container_double6_t& GadOrientation::GetOriVar() const
+		{
+			return GetDataVar();
+		}
+		// loc 
+		const container_double3_t& GadOrientation::GetAidingAlignment() const
+		{
+			return GetLocVal();
+		}
+
+		void GadOrientation::SetAidingAlignmentFixed(const double_t x, const double_t y, const double_t z)
+		{
+#ifdef OXTS_ENABLE_CPP11
+			SetLocMode(static_cast<uint8_t>(LOC_SYS::LOC_FIXED));
+#else
+			SetLocMode(static_cast<uint8_t>(LOC_FIXED));
+#endif
+			SetLocVal(x, y, z);
+		}
+
+		void GadOrientation::SetAidingAlignmentOptimising()
+		{
+#ifdef OXTS_ENABLE_CPP11
+			SetLocMode(static_cast<uint8_t>(LOC_SYS::LOC_KF));
+#else
+			SetLocMode(static_cast<uint8_t>(LOC_KF));
+#endif
+			SetLocVal(0.0, 0.0, 0.0);
+		}
+
+		void GadOrientation::SetAidingAlignmentConfig()
+		{
+#ifdef OXTS_ENABLE_CPP11
+			SetLocMode(static_cast<uint8_t>(LOC_SYS::LOC_CONFIG));
+#else
+			SetLocMode(static_cast<uint8_t>(LOC_CONFIG));
+#endif
+			SetLocVal(0.0, 0.0, 0.0);
+		}
+
+		// In here was orignally SetData rather than SetLoc
+		void GadOrientation::SetAidingAlignmentVar(const double_t x, const double_t y, const double_t z)
+		{
+			SetLocVarDiag(x, y, z);
+		}
+
+		const container_double6_t& GadOrientation::GetAidingAlignmentVar() const
+		{
+			return GetLocVar();
+		}
+
+		//==============================================================================
 		// GadAttitude
 		GadAttitude::GadAttitude() : 
 #ifdef OXTS_ENABLE_CPP11
