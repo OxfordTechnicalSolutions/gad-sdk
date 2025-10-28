@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 
 
-project(oxts-sdk VERSION 3.0.1 LANGUAGES CXX C)
+project(oxts-sdk VERSION 2.0.1 LANGUAGES CXX C)
 
 # Building and installation options
 option(OXTS_SDK_BUILD_DOCS "Build SDK documentation." OFF)
