@@ -17,6 +17,7 @@ Generic Aiding interface:
    spe.rst
    att.rst
    hea.rst
+   ori.rst
 
 
 Each of these aiding types will require a slightly different setup, but they 
