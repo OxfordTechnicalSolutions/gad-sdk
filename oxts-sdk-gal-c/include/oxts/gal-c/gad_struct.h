@@ -97,7 +97,8 @@ typedef struct
 /** 1-Dimensional speed in the vehicle frame */
 #define GEN_SPEED 8U	/*PRQA S 1534 # Macro is intended for external consumption. */
 #define GEN_ANGRATE 9U	/*PRQA S 1534 # Macro is intended for external consumption. */
-#define GEN_NUM 10U	/*PRQA S 1534 # Macro is intended for external consumption. */
+#define GEN_ORI 10U	/*PRQA S 1534 # Macro is intended for external consumption. */
+#define GEN_NUM 11U	/*PRQA S 1534 # Macro is intended for external consumption. */
 
 //==============================================================================
 // \brief Position coordinate systems
@@ -138,6 +139,15 @@ typedef struct
 #define ATT_SYS_HPR 1U       /*PRQA S 1534 # Macro is intended for external consumption. */
 /** Attitude measurement given as Heading, Pitch, Roll in a static local reference frame. */
 #define ATT_SYS_LOCAL 2U     /*PRQA S 1534 # Macro is intended for external consumption. */
+
+//==============================================================================
+// \brief Orienation types 
+
+#define ORI_SYS_VOID 0U /*PRQA S 1534 # Macro is intended for external consumption. */
+/** Attitude measurement given as Heading, Pitch, Roll in the navigation (NED) frame. */
+#define ORI_SYS_HPR 1U       /*PRQA S 1534 # Macro is intended for external consumption. */
+/** Attitude measurement given as Heading, Pitch, Roll in a static local reference frame. */
+#define ORI_SYS_LOCAL 2U     /*PRQA S 1534 # Macro is intended for external consumption. */
 
 //==============================================================================
 // \brief Heading types

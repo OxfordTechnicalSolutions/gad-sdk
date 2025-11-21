@@ -762,6 +762,7 @@ namespace OxTS
 			const container_double6_t& GetAidingAlignmentVar() const;
 		};
 
+
 		/**
 		 * Generic Aiding Heading.
 		 */
@@ -876,6 +877,75 @@ namespace OxTS
 			void SetAidingAlignmentVar(double_t v_h, double_t v_p, double_t v_r);
 			const container_double6_t& GetAidingAlignmentVar() const;
 		};
+		/**
+		* Generic Orientation Heading.
+		*/
+		class GadOrientation : public Gad /*PRQA S 1755 # Rule-0_1_5 should not apply as this is to be consumed by 3rd party. */
+		{
+		public:
+			/**
+			 * Default constructor
+			 */
+			GadOrientation();
+			/** Constructor.
+			 *  @param stream_id Stream ID for the attitude aiding source. Must be unique 129-254.
+			 */
+			explicit GadOrientation(const uint8_t stream_id);
+			const container_double3_t& GetOri() const;
+			// val
+			/**
+			 * Set the aiding attitude measurement relative to the NED coordinate frame.
+			 * @param heading
+			 * @param pitch
+			 * @param roll
+			 */
+			void SetOri(const double_t heading, const double_t pitch, const double_t roll);
+			/**
+			* Set the aiding attitude measurement relative to the local coordinate frame.
+			* @param heading
+			* @param pitch
+			* @param roll
+			* @note All parameters are in degrees.
+			*/
+			void SetOriLocal(const double_t heading, const double_t pitch, const double_t roll);
+			/**
+			 * Set the estimated variance on the aiding attitude measurement.
+			 * @param v_h Variance estimate on the heading angle (deg)^2
+			 * @param v_p Variance estimate on the pitch angle (deg)^2
+			 * @param v_r Variance estimate on the roll angle (deg)^2
+			 */
+			void SetOriVar(const double_t v_h, const double_t v_p, const double_t v_r);
+			const container_double6_t& GetOriVar() const;
+			// /**
+			//  * Set the angles which specify the rotation required to align the IMU and 
+			//  * aiding sensor frames. This alignment will not be optimised by the INS.
+			//  * @param x
+			//  * @param y
+			//  * @param z
+			//  */
+			void SetAidingAlignmentFixed(const double_t x, const double_t y, const double_t z);
+			const container_double3_t& GetAidingAlignment() const;
+			/**
+			 * Set alignment to be optimised by the INS. The alignment values will be read
+			 * from the mobile.att file, so are not set here.
+			 */
+			void SetAidingAlignmentOptimising();
+			/**
+			 * Indicate that alignment will be configured in the configuration file on
+			 * the INS.
+			 */
+			void SetAidingAlignmentConfig();
+			/**
+			 * Set the estimated variance (error) on the alignment angles between the IMU
+			 * and aiding sensor frames.
+			 * @param x
+			 * @param y
+			 * @param z
+			 */
+			void SetAidingAlignmentVar(const double_t x, const double_t y, const double_t z);
+			const container_double6_t& GetAidingAlignmentVar() const;
+		};
+
 
 	} // namespace gal_cpp
 } // namespace oxts

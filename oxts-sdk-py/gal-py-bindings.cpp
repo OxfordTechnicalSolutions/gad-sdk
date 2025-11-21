@@ -125,5 +125,16 @@ PYBIND11_MODULE(oxts_sdk, m) {
         .def("set_output_mode_to_udp", &OxTS::Gal_Cpp::GadHandler::SetOutputModeToUdp, py::arg("ip"))
         .def("send_packet", &OxTS::Gal_Cpp::GadHandler::SendPacket, py::arg("gad"));
 
+    py::class_<OxTS::Gal_Cpp::GadOrientation, OxTS::Gal_Cpp::Gad>(m, "GadOrientation")
+        .def(py::init<uint8_t>(), py::arg("stream_id"))
+        .def_property("ori", &OxTS::Gal_Cpp::GadOrientation::GetOri, UNPACK3(GadOrientation, SetOri))
+        .def_property("ori_local", &OxTS::Gal_Cpp::GadOrientation::GetOri, UNPACK3(GadOrientation, SetOriLocal))
+        .def_property("ori_var", &OxTS::Gal_Cpp::GadOrientation::GetOriVar, UNPACK3(GadOrientation, SetOriVar))
+        .def_property("aiding_alignment_var", &OxTS::Gal_Cpp::GadOrientation::GetAidingAlignmentVar, UNPACK3(GadOrientation, SetAidingAlignmentVar))
+        .def_property("aiding_alignment_fixed", &OxTS::Gal_Cpp::GadOrientation::GetAidingAlignment, UNPACK3(GadOrientation, SetAidingAlignmentFixed))
+        .def("set_aiding_alignment_optimising", &OxTS::Gal_Cpp::GadOrientation::SetAidingAlignmentOptimising)
+        .def("set_aiding_alignment_config", &OxTS::Gal_Cpp::GadOrientation::SetAidingAlignmentConfig);
+
+
 }
 
