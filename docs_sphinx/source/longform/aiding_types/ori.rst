@@ -49,7 +49,7 @@ Here are two examples of how to configure the GadHandler to transmit orientation
    .. code-tab:: c++
    
 		OxTS::Gal_Cpp::GadOrientation go(134); // Sets orientation aiding data to GAD stream ID 134
-		go.SetOri(var_hea, var_pit, var_rol); // Set an orientation measurement in heading, pitch and roll
+		go.SetOri(heading, pitch, roll); // Set an orientation measurement in heading, pitch and roll
 		go.SetOriVar(var_hea, var_pit, var_rol); // Diagonal covariance matrix
 		go.SetAidingAlignmentFixed(3.0, 15.0, 0.0); // Set an alignment in the packet of 3 and 15 degrees respectively from the INS axes
 		go.SetAidingAlignmentVar(1.0, 1.0, 4.0); // Set alignment covariance matrix to a diagonal matrix
