@@ -10,9 +10,9 @@ Each of the fields for this data type can be set using functions from the GadAtt
 Aiding Frames
 -------------
 
-Attitude aiding can be provided in two frames:
+Attitude aiding can be provided with respect to two frames:
 
-•	**Vehicle frame** This frame is attached to the vehicle and rotates with it in all three axes with the heading, pitch and roll of the vehicle.
+•	**Global NED frame** In this case, the measurement should be described in the North, East, Down (NED) frame (see :ref:`Frames <Frames>` section).
 •	**User-defined local frame** Orientation of the sensor relative to a user-defined local reference frame. More information on how to define the frame itself can be found in the user-defined local frame section. 
 
 For both frames, measurements are expected in degrees.
@@ -49,7 +49,7 @@ Here are two examples of how to configure the GadHandler to transmit attitude da
    .. code-tab:: c++
    
 		OxTS::Gal_Cpp::GadAttitude ga(134); // Sets attitude aiding data to GAD stream ID 134
-		ga.SetAtt(var_hea, var_pit, var_rol); // Set an attitude measurement in heading, pitch and roll
+		ga.SetAtt(hea, pit, rol); // Set an attitude measurement in heading, pitch and roll
 		ga.SetAttVar(var_hea, var_pit, var_rol); // Diagonal covariance matrix
 		ga.SetAidingAlignmentFixed(3.0, 15.0, 0.0); // Set an alignment in the packet of 3 and 15 degrees respectively from the INS axes
 		ga.SetAidingAlignmentVar(1.0, 1.0, 4.0); // Set alignment covariance matrix to a diagonal matrix
