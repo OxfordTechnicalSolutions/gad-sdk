@@ -12,7 +12,7 @@ Aiding Frames
 
 Similar to the attitude update, orientation aiding can be provided in two frames:
 
-•	**Vehicle frame** This frame is attached to the vehicle and rotates with it in all three axes with the heading, pitch and roll of the vehicle.
+•	**Global NED frame** In this case, the measurement should be described in the North, East, Down (NED) frame (see :ref:`Frames <Frames>` section).
 •	**User-defined local frame** Orientation of the sensor relative to a user-defined local reference frame. More information on how to define the frame itself can be found in the user-defined local frame section. 
 
 For both frames, measurements are expected in degrees.
